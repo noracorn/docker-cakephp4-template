@@ -12,13 +12,13 @@ services:
       MYSQL_DATABASE: my_app
       TZ: "Asia/Tokyo"
     ports:
-      - "3307:3306"
+      - "3308:3306"
   nginx:
     restart: always
     image: "nginx:mainline-alpine"
     ports:
-      - "80:80"
-      - "443:443"
+      - "8080:80"
+      - "444:443"
     volumes:
       - "./data/nginx/conf:/etc/nginx/"
       - "./data/htdocs:/var/www/html"
@@ -46,7 +46,7 @@ services:
     volumes:
       - "./data/htdocs:/root"
     ports:
-      - "8765:80"
+      - "8766:80"
     depends_on:
       - mysql
       - phpfpm
